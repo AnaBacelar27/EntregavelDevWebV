@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetos, Dados e Assincronismo – Semana 05</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 16px;
+      color: #222;
+      background: #fafafa;
+    }
+    section {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    form {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    input, button {
+      font: inherit;
+      padding: 6px 10px;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: wait;
+    }
+    .status {
+      min-height: 1.4em;
+      margin: 12px 0 4px;
+    }
+    .status.carregando { color: #1d4ed8; }
+    .status.erro       { color: #b91c1c; }
+    .status.vazio      { color: #b45309; }
+    dl {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 4px 16px;
+      margin: 8px 0 0;
+    }
+    dt { font-weight: bold; }
+    dd { margin: 0; }
+    .pokemon img {
+      width: 120px;
+      height: 120px;
+      image-rendering: pixelated;
+    }
+    .pokemon h3 {
+      margin: 8px 0 4px;
+      text-transform: capitalize;
+    }
+    .tipos {
+      display: flex;
+      gap: 6px;
+      padding: 0;
+      list-style: none;
+    }
+    .tipos li {
+      background: #eee;
+      border-radius: 12px;
+      padding: 2px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Objetos, Dados e Assincronismo</h1>
+
+
+  <section>
+    <h2>Parte 1 – Pedidos pagos</h2>
+    <ul id="lista-pedidos"></ul>
+    <p id="total-faturado"></p>
+    <p><small>Detalhes da validação no Console (F12).</small></p>
+  </section>
+
+
+  <section>
+    <h2>Parte 2 – Buscador de CEP</h2>
+    <form id="form-cep">
+      <input type="text" id="cep" placeholder="Ex: 01001-000" inputmode="numeric" maxlength="9">
+      <button type="submit" id="botao-cep">Buscar</button>
+    </form>
+    <p id="status-cep" class="status" aria-live="polite"></p>
+    <dl id="resultado-cep"></dl>
+
+    <h3>Histórico de buscas</h3>
+    <ul id="historico-cep"></ul>
+  </section>
+
+
+  <section>
+    <h2>Parte 3 – Mini Pokédex</h2>
+    <form id="form-pokemon">
+      <input type="text" id="pokemon" placeholder="Ex: pikachu">
+      <button type="submit" id="botao-pokemon">Buscar</button>
+    </form>
+    <p id="status-pokemon" class="status" aria-live="polite"></p>
+    <div id="resultado-pokemon" class="pokemon"></div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
